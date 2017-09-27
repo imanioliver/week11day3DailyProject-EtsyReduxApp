@@ -26,7 +26,9 @@ console.log({FILTER_PRODUCTS});
     switch (action.type){
         case FILTER_PRODUCTS:
             return update(state, {
-                filter: action.payload.filterType
+                filter: {
+                    $set: action.payload.filterType
+                }
             })
         default:
         return state;
