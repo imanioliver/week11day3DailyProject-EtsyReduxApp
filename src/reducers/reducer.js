@@ -6,7 +6,7 @@ import products from '../data/products';
 // Make sure the state object contains the `products` array imported in this file
 // The state will also require a property for the current state of filterable data
 const initialState = {
-    products:[],
+    products: products,
     filter: 'all'
 }
 
@@ -26,9 +26,12 @@ console.log({FILTER_PRODUCTS});
     switch (action.type){
         case FILTER_PRODUCTS:
             return update(state, {
-                filter: filterType
+                filter: action.payload.filterType
             })
+        default:
+        return state;
     }
+
 
 }
 
